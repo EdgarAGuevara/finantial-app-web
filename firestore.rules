@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+ 
+    // REGLAS PARA 'users'
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+     
+    // REGLAS PARA 'spaces'
+    match /spaces/{spaceId} {
+      // allow read: if request.auth != null && request.auth.uid in resource.data.members;
+      // allow create: if request.auth != null && request.auth.uid in request.resource.data.members;
+      // allow update: if request.auth != null && request.auth.uid in resource.data.members;
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null;
+ 
+      // REGLAS PARA LA SUBCOLECCIÓN 'transactions'
+      match /transactions/{transactionId} {
+        allow read, write: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/spaces/$(spaceId)).data.members;
+      }
+
+      // REGLAS PARA LA SUBCOLECCIÓN 'categories'
+      match /categories/{categoryId} {
+        allow read, write: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/spaces/$(spaceId)).data.members;
+      }
+
+      // REGLAS PARA LA SUBCOLECCIÓN 'accounts'
+      match /accounts/{accountId} {
+        allow read, write: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/spaces/$(spaceId)).data.members;
+      }
+    }
+
+    // REGLAS PARA 'icons'
+    match /icons/{iconId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null; // Opcional: restringir a un administrador
+    }
+  }
+}
