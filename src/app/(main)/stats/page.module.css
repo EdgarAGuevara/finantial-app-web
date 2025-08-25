@@ -1,0 +1,41 @@
+.main {
+  padding: 1rem;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.chartContainer {
+  margin: 2rem 0;
+}
+
+.categoryList h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.categoryList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}

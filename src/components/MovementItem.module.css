@@ -1,0 +1,56 @@
+.item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 16px;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.category {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1c1c1e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.description {
+    font-size: 0.875rem;
+    color: #6c6c6e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.amount {
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.income {
+    color: #008000;
+}
+
+.expense {
+    color: #d32f2f;
+}
